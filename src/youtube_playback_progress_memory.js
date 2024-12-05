@@ -55,7 +55,7 @@ const observer = new MutationObserver((mutationsList) => {
                 if (node.id === 'movie_player') {
                     window.last_player_state = -1
                     node.addEventListener('onStateChange', (data) => {
-                        if(data in [1, 3] && window.last_player_state === -1 && get_page_class(location.href) === 'watch'){
+                        if([1, 3].includes(data) && window.last_player_state === -1 && get_page_class(location.href) === 'watch'){
                             // resume progress
                             const saved_time = localStorage.getItem('progress-' + get_video_id(location.href)) || '0'
                             node.seekTo(parseInt(saved_time))

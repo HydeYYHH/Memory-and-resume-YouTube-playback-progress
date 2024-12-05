@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         YouTube playback progress memory
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  memory and resume the playback progress
 // @author       hhst
 // @match        https://www.youtube.com/watch?v=*
 // @match        https://m.youtube.com/watch?v=*
+// @match        https://www.youtube.com/
+// @match        https://m.youtube.com/
 // @run-at       document-start
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=youtube.com
 // @grant        GM_getValue
@@ -15,6 +17,29 @@
 
 (function() {
     'use strict';
+
+    const get_page_class = (url) => {
+    url = url.toLowerCase()
+    if (url.startsWith('https://m.youtube.com') || url.startsWith('https://www.youtube.com')) {
+        if (url.includes('shorts')) {
+            return 'shorts'
+        }
+        if (url.includes('watch')) {
+            return 'watch'
+        }
+        if (url.includes('library')) {
+            return 'library'
+        }
+        if (url.includes('subscriptions')) {
+            return 'subscriptions'
+        }
+        if (url.includes('@')) {
+            return '@'
+        }
+        return 'home'
+    }
+        return 'unknown'
+    }
 
     // return the youtube video id like 'A9oByH9Ci24'
     const get_video_id = (url) => {
@@ -53,8 +78,8 @@
                             2 (paused)
                             3 (buffering)
                             5 (video cued).
-                            */ 
-                            if(data in [1 , 3] && window.last_player_state === -1 ){
+                            */
+                            if([1, 3].includes(data) && window.last_player_state === -1 && get_page_class(location.href) === 'watch'){
                                 console.log("ready to resume...")
                                 // resume progress
                                 // get the last progress time, default 0

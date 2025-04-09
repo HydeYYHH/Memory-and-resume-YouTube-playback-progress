@@ -13,6 +13,4 @@
 
 * github仓库: [HydeYYHH/Memory-and-resume-YouTube-playback-progress · GitHub](https://github.com/HydeYYHH/Memory-and-resume-YouTube-playback-progress)
 
-* 如果你是移动端用户, 推荐使用 [GitHub - HydeYYHH/litetube: 🍃🍃🍃A lightweight WebView wrapper for YouTube, offering many additional features such as ad blocking, background play and playback progress memory🏵️🏵️🏵️](https://github.com/HydeYYHH/litetube)
-
 

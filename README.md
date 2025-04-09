@@ -18,8 +18,6 @@
 #### What's more
 
 - github repo:  [HydeYYHH/Memory-and-resume-YouTube-playback-progress · GitHub](https://github.com/HydeYYHH/Memory-and-resume-YouTube-playback-progress)
-
-- if you are a mobile user, it is highly recommended to use [GitHub - HydeYYHH/litetube: 🍃🍃🍃A lightweight WebView wrapper for YouTube, offering many additional features such as ad blocking, background play and playback progress memory🏵️🏵️🏵️](https://github.com/HydeYYHH/litetube)
   
   
 
